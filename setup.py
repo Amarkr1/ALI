@@ -5,8 +5,8 @@ setup(
     version='0.1.0',
     description='Code for the "Adversarially Learned Inference" paper',
     long_description='Code for the "Adversarially Learned Inference" paper',
-    url='https://github.com/IshmaelBelghazi/ALI',
-    author='Vincent Dumoulin, Ishmael Belghazi',
+    url='https://github.com/Amarkr1/ALI.git',
+    author='Vincent Dumoulin, Ishmael Belghazi (modified by Amar)',
     license='MIT',
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
