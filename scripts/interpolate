@@ -55,7 +55,8 @@ if __name__ == "__main__":
         'cifar10': streams.create_cifar10_data_streams,
         'svhn': streams.create_svhn_data_streams,
         'celeba': streams.create_celeba_data_streams,
-        'tiny_imagenet': streams.create_tiny_imagenet_data_streams}
+        'tiny_imagenet': streams.create_tiny_imagenet_data_streams,
+        'loris': streams.create_loris_data_streams}
     parser = argparse.ArgumentParser(description="Plot interpolations.")
     parser.add_argument("which_dataset", type=str,
                         choices=tuple(stream_functions.keys()),
