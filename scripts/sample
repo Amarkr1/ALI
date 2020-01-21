@@ -3,6 +3,8 @@ import argparse
 
 import theano
 from blocks.serialization import load
+import matplotlib
+matplotlib.use('PS')#fixing the tckinter problem
 from matplotlib import cm, pyplot
 from mpl_toolkits.axes_grid1 import ImageGrid
 
@@ -26,6 +28,7 @@ def main(main_loop, nrows, ncols, save_path=None):
 
     if save_path is None:
         pyplot.show()
+        pyplot.savefig('./try2.png')
     else:
         pyplot.savefig(save_path, transparent=True, bbox_inches='tight')
 
