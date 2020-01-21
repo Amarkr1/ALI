@@ -1,11 +1,20 @@
 """Functions for creating data streams."""
-from fuel.datasets import CIFAR10, SVHN, CelebA
+from fuel.datasets import CIFAR10, SVHN, CelebA,LORIS
 from fuel.datasets.toy import Spiral
 from fuel.schemes import ShuffledScheme
 from fuel.streams import DataStream
 
 from .datasets import TinyILSVRC2012, GaussianMixture
 
+def create_loris_data_streams(batch_size, monitoring_batch_size, rng=None):
+    train_set = LORIS(('train',), sources=('features',), subset=slice(0, 1200))
+    valid_set = LORIS(('train',), sources=('features',), subset=slice(1200, 1600))
+    main_loop_stream = DataStream.default_stream(train_set,iteration_scheme=ShuffledScheme(train_set.num_examples, batch_size, rng=rng))
+    train_monitor_stream = DataStream.default_stream(
+        train_set,iteration_scheme=ShuffledScheme(100, monitoring_batch_size, rng=rng))
+    valid_monitor_stream = DataStream.default_stream(
+        valid_set,iteration_scheme=ShuffledScheme(100, monitoring_batch_size, rng=rng))
+    return main_loop_stream, train_monitor_stream, valid_monitor_stream
 
 def create_svhn_data_streams(batch_size, monitoring_batch_size, rng=None):
     train_set = SVHN(2, ('extra',), sources=('features',))
