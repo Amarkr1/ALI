@@ -14,7 +14,7 @@ $ latexmk --pdf adverarially_learned_inference
 ## Requirements
 
 * [Blocks](https://blocks.readthedocs.org/en/latest/), development version
-* [Fuel](https://fuel.readthedocs.org/en/latest/), development version
+* [Fuel](https://github.com/Amarkr1/fuel),
 
 ## Setup
 
