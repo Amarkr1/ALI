@@ -20,10 +20,10 @@ def get_log_odds(raw_marginals):
     return numpy.log(marginals / (1 - marginals)).astype(theano.config.floatX)
 
 
-def conv_brick(filter_size, step, num_filters, border_mode='valid'):
+def conv_brick((filter_sizex,filter_sizey), (stepx,stepy), num_filters, border_mode='valid'):
     """Instantiates a ConvolutionalBrick."""
-    return Convolutional(filter_size=(filter_size, filter_size),
-                         step=(step, step),
+    return Convolutional(filter_size=(filter_sizex, filter_sizey),
+                         step=(stepx, stepy),
                          border_mode=border_mode,
                          num_filters=num_filters,
                          name=name_generator())
