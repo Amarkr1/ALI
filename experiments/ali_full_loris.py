@@ -70,8 +70,8 @@ def create_model_brick():
     decoder = DeterministicConditional(decoder_mapping, name='decoder')
 
     layers = [
-        conv_brick(filter_size = (6,4), step = (3,2), num_filters = 32), bn_brick(), LeakyRectifier(leak=LEAK),
-        conv_brick(filter_size = (2,14), step = (2,2), num_filters = 32), bn_brick(), LeakyRectifier(leak=LEAK),
+        conv_brick((6,4), (3,2), num_filters = 32), bn_brick(), LeakyRectifier(leak=LEAK),
+        conv_brick((2,14), (2,2), num_filters = 32), bn_brick(), LeakyRectifier(leak=LEAK),
         conv_brick(5, 1, 32), ConvMaxout(num_pieces=NUM_PIECES),
         conv_brick(4, 2, 64), ConvMaxout(num_pieces=NUM_PIECES),
         conv_brick(4, 1, 128), ConvMaxout(num_pieces=NUM_PIECES),
